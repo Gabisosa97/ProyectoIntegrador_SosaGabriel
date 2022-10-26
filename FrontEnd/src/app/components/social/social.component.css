@@ -1,6 +1,13 @@
 img{
     width: 40px;
 }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
 .btn {
     margin-right: 0.5em;
 }
