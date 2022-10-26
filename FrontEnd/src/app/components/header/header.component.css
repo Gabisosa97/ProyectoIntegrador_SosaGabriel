@@ -1,8 +1,8 @@
-div{
-    background-color: darkgray;
+div {
+    background-color: #ffbd59;
 }
 
 app-social{
     float:right;
-    margin-top:25px
+    margin-top:20px
 }
