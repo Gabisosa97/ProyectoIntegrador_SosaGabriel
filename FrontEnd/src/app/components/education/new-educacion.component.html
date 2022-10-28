@@ -1,16 +1,15 @@
-<div class="container" *ngIf="xpLab">
+<div class="container">
   <div class="row">
     <div>
-      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
         <div class="form-group">
           <label for="titulo">Titulo de la Empresa</label>
           <input
             type="text"
             class="form-control"
             id="titulo"
-            [(ngModel)]="xpLab.titulo"
             name="titulo"
-            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="titulo"
             required
           />
         </div>
@@ -20,14 +19,13 @@
             type="text"
             class="form-control"
             id="descripcion"
-            [(ngModel)]="xpLab.descripcion"
             name="descripcion"
-            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="descripcion"
             required
           />
         </div>
         <div>
-          <button class="btn btn-primary">Actualizar</button>
+          <button class="btn btn-primary">Agregar</button>
         </div>
       </form>
     </div>

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="xpLab">
+<div class="container" *ngIf="edu">
   <div class="row">
     <div>
       <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
@@ -8,7 +8,7 @@
             type="text"
             class="form-control"
             id="titulo"
-            [(ngModel)]="xpLab.titulo"
+            [(ngModel)]="edu.titulo"
             name="titulo"
             [ngModelOptions]="{ standalone: true }"
             required
@@ -20,7 +20,7 @@
             type="text"
             class="form-control"
             id="descripcion"
-            [(ngModel)]="xpLab.descripcion"
+            [(ngModel)]="edu.descripcion"
             name="descripcion"
             [ngModelOptions]="{ standalone: true }"
             required

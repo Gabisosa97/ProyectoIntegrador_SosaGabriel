@@ -41,6 +41,7 @@ export class ExperienceComponent implements OnInit {
         },
         (err) => {
           alert('No se pudo borrar la experiencia.');
+          console.log(err);
         }
       );
     }

@@ -62,14 +62,15 @@ public class ExperienciaController {
         if (!xpService.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
-        if (!xpService.existsByTitulo(xpDTO.getTitulo()) && xpService.getByTitulo(xpDTO.getTitulo()).get().getId() != id) {
-            return new ResponseEntity(new Mensaje("Ese titulo ya existe"), HttpStatus.BAD_REQUEST);
-        }
+//        if (!xpService.existsByTitulo(xpDTO.getTitulo()) && xpService.getByTitulo(xpDTO.getTitulo()).get().getId() != id) {
+//            return new ResponseEntity(new Mensaje("Ese titulo ya existe"), HttpStatus.BAD_REQUEST);
+//        }
         if (StringUtils.isBlank(xpDTO.getTitulo())) {
             return new ResponseEntity(new Mensaje("El titulo es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 
         Experiencia xp = xpService.getOne(id).get();
+        
         xp.setTitulo(xpDTO.getTitulo());
         xp.setDescripcion(xpDTO.getDescripcion());
 
@@ -81,7 +82,7 @@ public class ExperienciaController {
 
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
-        if (xpService.existsById(id)) {
+        if (!xpService.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
 

@@ -27,8 +27,8 @@ public class EducacionService {
         return iexperienciaRepository.findByTitulo(titulo);
     }
 
-    public void save(Educacion xp) {
-        iexperienciaRepository.save(xp);
+    public void save(Educacion edu) {
+        iexperienciaRepository.save(edu);
     }
 
     public void delete(int id) {

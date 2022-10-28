@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("eduLaboral")
+@RequestMapping("educacion")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
 
@@ -62,9 +62,9 @@ public class EducacionController {
         if (!eduService.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
         }
-        if (!eduService.existsByTitulo(eduDTO.getTitulo()) && eduService.getByTitulo(eduDTO.getTitulo()).get().getId() != id) {
-            return new ResponseEntity(new Mensaje("Ese titulo ya existe"), HttpStatus.BAD_REQUEST);
-        }
+//        if (!eduService.existsByTitulo(eduDTO.getTitulo()) && eduService.getByTitulo(eduDTO.getTitulo()).get().getId() != id) {
+//            return new ResponseEntity(new Mensaje("Ese titulo ya existe"), HttpStatus.BAD_REQUEST);
+//        }
         if (StringUtils.isBlank(eduDTO.getTitulo())) {
             return new ResponseEntity(new Mensaje("El titulo es obligatorio"), HttpStatus.BAD_REQUEST);
         }
