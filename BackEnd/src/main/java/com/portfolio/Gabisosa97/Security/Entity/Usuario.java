@@ -27,8 +27,6 @@ public class Usuario {
     @NotNull
     private String nombre;
     @NotNull
-    private String apellido;
-    @NotNull
     @Column(unique = true)
     private String nombreUsuario;
     @NotNull
@@ -39,9 +37,11 @@ public class Usuario {
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
 
-    public Usuario(String nombre, String apellido, String nombreUsuario, String email, String password) {
+    public Usuario() {
+    }
+    
+    public Usuario(String nombre, String nombreUsuario, String email, String password) {
         this.nombre = nombre;
-        this.apellido = apellido;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;

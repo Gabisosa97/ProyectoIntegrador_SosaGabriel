@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
     @Autowired
@@ -59,7 +59,6 @@ public class AuthController {
 
         Usuario usuario = new Usuario(
                 nuevoUsuario.getNombre(),
-                nuevoUsuario.getApellido(),
                 nuevoUsuario.getNombreUsuario(),
                 nuevoUsuario.getEmail(),
                 passwordEncoder.encode(nuevoUsuario.getPassword()));
