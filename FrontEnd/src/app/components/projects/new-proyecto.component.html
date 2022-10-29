@@ -10,7 +10,6 @@
             id="nombre"
             [(ngModel)]="nombre"
             name="nombre"
-            [ngModelOptions]="{ standalone: true }"
             required
           />
         </div>
@@ -22,9 +21,24 @@
             id="descripcion"
             [(ngModel)]="descripcion"
             name="descripcion"
-            [ngModelOptions]="{ standalone: true }"
             required
           />
+        </div>
+        <div class="form-group">
+          <label for="img">Imagen</label>
+          <input
+            type="file"
+            class="form-control"
+            id="img"
+            name="img"
+            [(ngModel)]="img"
+            (change)="uploadImage($event)"
+            accept=".jpg, .png, .jpeg"
+            required
+          />
+        </div>
+        <div class="imagen">
+          <img src="{{ imageService.url }}" width="200px" />
         </div>
         <div>
           <button class="btn btn-primary">Editar</button>

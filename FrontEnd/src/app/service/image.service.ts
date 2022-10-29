@@ -21,20 +21,22 @@ export class ImageService {
     const imgRef = ref(this.storage, `imagen/` + name);
     uploadBytes(imgRef, file)
       .then((response) => {
-        this.getImages();
+        this.getImages(name);
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  getImages() {
+  getImages(name: string) {
     const imagesRef = ref(this.storage, 'imagen');
     list(imagesRef)
       .then(async (response) => {
         for (let item of response.items) {
-          this.url = await getDownloadURL(item);
-          console.log("LA URL ES: " + this.url);
+          if (item.name == name) {
+            this.url = await getDownloadURL(item);
+            console.log('LA URL DE ' + item.name +'ES: ' + this.url);
+          }
         }
       })
       .catch((err) => {

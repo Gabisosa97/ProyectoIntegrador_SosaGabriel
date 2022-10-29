@@ -24,8 +24,10 @@ export class NewProyectoComponent implements OnInit {
 
   onCreate(): void {
     const proyecto = new Proyecto(this.nombre, this.descripcion, this.img);
+    this.img = this.imageService.url;
     this.proyectoService.save(proyecto).subscribe(
       (data) => {
+        console.log(data);
         alert('Proyecto añadida');
         this.router.navigate(['']);
       },
@@ -39,6 +41,5 @@ export class NewProyectoComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     const name = 'proyecto_' + id;
     this.imageService.uploadImage($event, name);
-    console.log('que hago aca jaja')
   }
 }
