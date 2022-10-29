@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { persona } from 'src/app/model/persona.model';
+import { Proyecto } from 'src/app/model/proyecto';
 import { ImageService } from 'src/app/service/image.service';
-import { PersonaService } from 'src/app/service/persona.service';
+import { ProyectoService } from 'src/app/service/proyecto.service';
 
 @Component({
-  selector: 'app-edit-about-me',
-  templateUrl: './edit-about-me.component.html',
+  selector: 'app-edit-proyecto',
+  templateUrl: './edit-proyecto.component.html',
 })
-export class EditAboutMeComponent implements OnInit {
-  persona: persona = null;
+export class EditProyectoComponent implements OnInit {
+  proyecto: Proyecto = null;
   constructor(
     private activatedRouter: ActivatedRoute,
-    private personaService: PersonaService,
+    private proyectoService: ProyectoService,
     private router: Router,
     public imageService: ImageService
   ) {}
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.personaService.detail(id).subscribe(
+    this.proyectoService.detail(id).subscribe(
       (data) => {
-        this.persona = data;
+        this.proyecto = data;
       },
       (err) => {
-        alert('Error al modificar persona.');
+        alert('Error al modificar proyecto.');
         this.router.navigate(['']);
       }
     );
@@ -32,13 +32,13 @@ export class EditAboutMeComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.persona.img = this.imageService.url;
-    this.personaService.update(id, this.persona).subscribe(
+    this.proyecto.img = this.imageService.url;
+    this.proyectoService.update(id, this.proyecto).subscribe(
       (data) => {
         this.router.navigate(['']);
       },
       (err) => {
-        alert('Error al modificar persona.');
+        alert('Error al modificar proyecto.');
         this.router.navigate(['']);
       }
     );
@@ -49,4 +49,5 @@ export class EditAboutMeComponent implements OnInit {
     const name = 'perfil_' + id;
     this.imageService.uploadImage($event, name);
   }
+  
 }

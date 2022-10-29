@@ -1,6 +1,10 @@
 div {
   background-color: #6f8294;
-  text-align:center
+  text-align: center;
+}
+
+#editar {
+  float: right;
 }
 
 /* Etiqueta Nombre */
@@ -18,6 +22,11 @@ div {
     box-shadow: 3px 3px 3px grey;
     left: 3%;
     top: 70px;
+  }
+  .descripcion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

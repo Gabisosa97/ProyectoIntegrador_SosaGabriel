@@ -26,6 +26,11 @@ import { EditEducacionComponent } from './components/education/edit-educacion.co
 import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { EditAboutMeComponent } from './components/about-me/edit-about-me.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { EditProyectoComponent } from './components/projects/edit-proyecto.component';
+import { NewProyectoComponent } from './components/projects/new-proyecto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +52,8 @@ import { EditAboutMeComponent } from './components/about-me/edit-about-me.compon
     NewSkillComponent,
     EditSkillComponent,
     EditAboutMeComponent,
+    EditProyectoComponent,
+    NewProyectoComponent,
     
   ],
   imports: [
@@ -56,6 +63,8 @@ import { EditAboutMeComponent } from './components/about-me/edit-about-me.compon
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent],

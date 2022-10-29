@@ -1,15 +1,34 @@
 <div class="row">
   <h1>Proyectos Realizados</h1>
+  <div class="col-lg-2">
+    <button
+      type="button"
+      class="btn btn-dark"
+      routerLink="/nuevoproyecto"
+      *ngIf="isLogged"
+    >
+      Nuevo Proyecto
+    </button>
+  </div>
   <div class="contenedor">
-    <div class="col-sm-12 col-md-7 col-lg-7 pt1">
-      <h1>Proyecto</h1>
+    <div class="col-sm-12 col-md-7 col-lg-7 pt1" *ngFor="let xp of proyecto">
+      <h1>{{ xp.nombre }}</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam cumque
-        modi possimus eius, maxime enim repellat asperiores iste unde corporis.
+        {{ xp.descripcion }}
       </p>
-    </div>
-    <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 pt2">
-      <img src="../../../assets/APLogo.png" class="img-fluid img-project"/>
+      <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 pt2">
+        <img src="{{ xp.img }}" class="img-fluid img-project" />
+      </div>
+      <td *ngIf="isLogged">
+        <button class="btn btn-light" routerLink="/editproyecto/{{ xp.id }}">
+          <i class="bi bi-pencil-fill"></i>Editar
+        </button>
+      </td>
+      <td *ngIf="isLogged">
+        <button class="btn btn-danger" (click)="delete(xp.id)">
+          <i class="bi bi-trash3"></i>Borrar
+        </button>
+      </td>
     </div>
   </div>
 </div>
