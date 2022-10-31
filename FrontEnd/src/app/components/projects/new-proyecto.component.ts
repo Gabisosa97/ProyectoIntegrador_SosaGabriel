@@ -12,6 +12,7 @@ export class NewProyectoComponent implements OnInit {
   nombre: string = '';
   descripcion: string = '';
   img: string = '';
+  link: string = '';
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -23,7 +24,7 @@ export class NewProyectoComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreate(): void {
-    const proyecto = new Proyecto(this.nombre, this.descripcion, this.img);
+    const proyecto = new Proyecto(this.nombre, this.descripcion, this.img,this.link);
     this.img = this.imageService.url;
     this.proyectoService.save(proyecto).subscribe(
       (data) => {

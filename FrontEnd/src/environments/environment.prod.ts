@@ -9,5 +9,5 @@ export const environment = {
     messagingSenderId: '255925360724',
   },
   production: true,
-  URL: 'https://backend-portfolio-gabisosa97.herokuapp.com'
+  URL: 'https://backend-portfolio-gabisosa97.herokuapp.com',
 };

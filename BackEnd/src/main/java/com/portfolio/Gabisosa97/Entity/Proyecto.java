@@ -22,11 +22,13 @@ public class Proyecto {
     private int id;
     private String nombre;
     private String descripcion;
+    private String link;
     private String img;
 
-    public Proyecto(String nombre, String descripcion, String img) {
+    public Proyecto(String nombre, String descripcion, String img, String link) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.link = link;
         this.img = img;
     }
 }

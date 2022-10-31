@@ -17,11 +17,12 @@
         <tr *ngFor="let pr of proyecto">
           <td>{{ pr.nombre }}</td>
           <td>{{ pr.descripcion }}</td>
+          <td><a href="{{pr.link}}" style="color:white"target="_blank">Enlace</a></td>
           <td>
             <div
               class="col-sm-12 col-md-3 col-lg-3 offset-md-3 offset-lg-3 pt2"
             >
-              <img src="{{ pr.img }}" class="img-fluid img-project" />
+              <img style="width: auto" src="{{ pr.img }}" class="img-fluid img-project" />
             </div>
           </td>
           <td *ngIf="isLogged">

@@ -19,4 +19,6 @@ public class ProyectoDTO {
     private String descripcion;
     @NotBlank
     private String img;
+    @NotBlank
+    private String link;
 }
